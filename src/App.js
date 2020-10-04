@@ -1,25 +1,21 @@
-import React from 'react';
-import logo from './logo.svg';
+import React,{useState} from 'react';
 import './App.css';
+import ClassComponent from './ClassComponent';
+import FunctionComponent from './FunctionComponent';
 
 function App() {
+
+  const [showComponent,setShowComponent] = useState (true)
+
   return (
+    <>
+    <button onClick={() => setShowComponent(!showComponent)}>Toggle Component</button>
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      {showComponent ? <FunctionComponent/> : <div/> }
+      
+      <ClassComponent/>
     </div>
+    </>
   );
 }
 
